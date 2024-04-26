@@ -6,7 +6,7 @@ app = Flask(__name__)
 def index():
   return render_template('index.html')
 
-@app.route('/api/incoming/', methods=['POST'])
+@app.route('/api/incoming', methods=['POST'])
 def handler():
     try:
         # Note: Token authorization can be added here in the future
