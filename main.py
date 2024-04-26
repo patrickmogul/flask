@@ -23,13 +23,12 @@ def handler(token):
         # Extract message text, chat ID, and message ID from the request
         message_text = request.json.get("message", {}).get("text", "")
         chat_id = request.json.get("message", {}).get("chat", {}).get("id", "")
-        message_id = request.json.get("message", {}).get("message_id", "")
         username = (
             request.json.get("message", {}).get("from", {}).get("username", "User")
         )
 
         # Send a "Processing your request..." message
-        send_message(chat_id, "Processing your request...")
+        message_id = send_message(chat_id, "Processing your request...")
 
         # Define a dictionary to map each command to its corresponding action
         command_actions = {
