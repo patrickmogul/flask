@@ -1,0 +1,31 @@
+{
+  "update_id": 558367679,
+  "message": {
+    "message_id": 5,
+    "from": {
+      "id": 1665753231,
+      "is_bot": false,
+      "first_name": "Patrick ⚡️ Easy Node Validator ⚡️",
+      "last_name": "EasyNode.PRO - WON'T DM YOU",
+      "username": "patrickmogul",
+      "language_code": "en",
+      "is_premium": true
+    },
+    "chat": {
+      "id": 1665753231,
+      "first_name": "Patrick ⚡️ Easy Node Validator ⚡️",
+      "last_name": "EasyNode.PRO - WON'T DM YOU",
+      "username": "patrickmogul",
+      "type": "private"
+    },
+    "date": 1714103769,
+    "text": "/start",
+    "entities": [
+      {
+        "offset": 0,
+        "length": 6,
+        "type": "bot_command"
+      }
+    ]
+  }
+}

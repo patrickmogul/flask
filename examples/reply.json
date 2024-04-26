@@ -1,0 +1,42 @@
+{
+  "update_id": 558367681,
+  "message": {
+    "message_id": 9,
+    "from": {
+      "id": 1665753231,
+      "is_bot": false,
+      "first_name": "Patrick ⚡️ Easy Node Validator ⚡️",
+      "last_name": "EasyNode.PRO - WON'T DM YOU",
+      "username": "patrickmogul",
+      "language_code": "en",
+      "is_premium": true
+    },
+    "chat": {
+      "id": 1665753231,
+      "first_name": "Patrick ⚡️ Easy Node Validator ⚡️",
+      "last_name": "EasyNode.PRO - WON'T DM YOU",
+      "username": "patrickmogul",
+      "type": "private"
+    },
+    "date": 1714106536,
+    "reply_to_message": {
+      "message_id": 6,
+      "from": {
+        "id": 7172125413,
+        "is_bot": true,
+        "first_name": "ionetbot_test",
+        "username": "ionettest_bot"
+      },
+      "chat": {
+        "id": 1665753231,
+        "first_name": "Patrick ⚡️ Easy Node Validator ⚡️",
+        "last_name": "EasyNode.PRO - WON'T DM YOU",
+        "username": "patrickmogul",
+        "type": "private"
+      },
+      "date": 1714103770,
+      "text": "Welcome to the ioNetBot, patrickmogul!"
+    },
+    "text": "Thanks!"
+  }
+}
