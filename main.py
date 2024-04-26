@@ -7,12 +7,11 @@ def index():
   return render_template('index.html')
 
 @app.route('/api/incoming/', methods=['POST'])
-def handler(token):
+def handler():
     try:
         # Note: Token authorization can be added here in the future
 
         # Log the incoming request along with the token
-        print(f"Incoming request with token: {token}")
         print(f"Request data: {request.json}")
 
         # Your processing logic goes here
