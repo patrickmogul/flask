@@ -64,6 +64,7 @@ def send_message(chat_id, text):
     payload = {"chat_id": chat_id, "text": text}
     response = requests.post(url, json=payload)
     response.raise_for_status()
+    print(response.text)
 
 
 def update_message(chat_id, message_id, text):
@@ -72,6 +73,7 @@ def update_message(chat_id, message_id, text):
     payload = {"chat_id": chat_id, "message_id": message_id, "text": text}
     response = requests.post(url, json=payload)
     response.raise_for_status()
+    print(response.text)
 
 
 def send_welcome_message(chat_id, message_id, username):
