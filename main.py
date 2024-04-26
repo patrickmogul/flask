@@ -31,17 +31,16 @@ def handler(token):
         # Send a "Processing your request..." message
         send_message(chat_id, "Processing your request...")
 
-        # Check if the message text is '/start'
-        if message_text == "/start":
-            # Craft the welcome message
-            welcome_message = f"Welcome to the ioNetBot, {username}!"
-            # Update the message with the welcome message
-            update_message(chat_id, message_id, welcome_message)
-        elif message_text == "/time":
-            # Get the current UTC time in human-readable format
-            current_time = get_current_utc_time()
-            # Update the message with the current time
-            update_message(chat_id, message_id, current_time)
+        # Define a dictionary to map each command to its corresponding action
+        command_actions = {
+            "/start": send_welcome_message,
+            "/time": send_current_time,
+            # Add more commands and their corresponding actions here
+        }
+
+        # If the command is recognized, execute its corresponding action
+        if message_text in command_actions:
+            command_actions[message_text](chat_id, message_id, username)
         else:
             # If the command is unknown, update the message with an error message
             error_message = (
@@ -73,6 +72,18 @@ def update_message(chat_id, message_id, text):
     payload = {"chat_id": chat_id, "message_id": message_id, "text": text}
     response = requests.post(url, json=payload)
     response.raise_for_status()
+
+
+def send_welcome_message(chat_id, message_id, username):
+    """Send a welcome message to the user."""
+    welcome_message = f"Welcome to the ioNetBot, {username}!"
+    update_message(chat_id, message_id, welcome_message)
+
+
+def send_current_time(chat_id, message_id, username):
+    """Send the current UTC time to the user."""
+    current_time = get_current_utc_time()
+    update_message(chat_id, message_id, current_time)
 
 
 def get_current_utc_time():
