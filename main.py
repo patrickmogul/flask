@@ -64,7 +64,10 @@ def send_message(chat_id, text):
     payload = {"chat_id": chat_id, "text": text}
     response = requests.post(url, json=payload)
     response.raise_for_status()
-    print(response.text)
+    data = response.json()
+    message_id = data["result"]["message_id"]
+    print(f"Message sent with ID: {message_id}")
+    return message_id
 
 
 def update_message(chat_id, message_id, text):
