@@ -1,10 +1,14 @@
 import requests
+import os
 from flask import Flask, request, jsonify
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 
 # Replace 'YOUR_TELEGRAM_BOT_TOKEN' with your actual Telegram bot token
-TELEGRAM_BOT_TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 
 @app.route('/api/incoming/<token>', methods=['POST'])
 def handler(token):
