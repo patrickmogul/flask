@@ -31,15 +31,16 @@ def handler(token):
 
         # Extract message text, chat ID, and message ID from the request
         print("Extracting message text, chat ID, and message ID...")
-        print(f"Type of request.json: {type(request.json)}")
+        print(request.json)
         message_text = request.json.get("message", {}).get("text", "")
+        print("Message text:", message_text)
         chat_id = request.json.get("message", {}).get("chat", {}).get("id", "")
+        print("Chat ID:", chat_id)
         username = (
             request.json.get("message", {}).get("from", {}).get("username", "User")
         )
-        print(f"Message text: {message_text}")
-        print(f"Chat ID: {chat_id}")
-        print(f"Username: {username}")
+        print("Username:", username)
+
         # Send a "Processing your request..." message
         message_id = send_message(chat_id, "Processing your request...")
 
