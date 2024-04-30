@@ -30,11 +30,15 @@ def handler(token):
             raise ValueError("Request data is not in the expected JSON format")
 
         # Extract message text, chat ID, and message ID from the request
+        print("Extracting message text, chat ID, and message ID...")
         message_text = request.json.get("message", {}).get("text", "")
         chat_id = request.json.get("message", {}).get("chat", {}).get("id", "")
         username = (
             request.json.get("message", {}).get("from", {}).get("username", "User")
         )
+        print(f"Message text: {message_text}")
+        print(f"Chat ID: {chat_id}")
+        print(f"Username: {username}")
         # Send a "Processing your request..." message
         message_id = send_message(chat_id, "Processing your request...")
 
