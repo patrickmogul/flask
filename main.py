@@ -12,9 +12,11 @@ app = Flask(__name__)
 # Replace 'YOUR_TELEGRAM_BOT_TOKEN' with your actual Telegram bot token
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 
-@app.route('/')
+
+@app.route("/")
 def index():
-  return render_template('index.html')
+    return render_template("index.html")
+
 
 @app.route("/api/incoming/<token>", methods=["POST"])
 def handler(token):
@@ -23,13 +25,16 @@ def handler(token):
         print(f"Incoming request with token: {token}")
         print(f"Request data: {request.json}")
 
+        # Check if request.json is a dictionary
+        if not isinstance(request.json, dict):
+            raise ValueError("Request data is not in the expected JSON format")
+
         # Extract message text, chat ID, and message ID from the request
         message_text = request.json.get("message", {}).get("text", "")
         chat_id = request.json.get("message", {}).get("chat", {}).get("id", "")
         username = (
             request.json.get("message", {}).get("from", {}).get("username", "User")
         )
-
         # Send a "Processing your request..." message
         message_id = send_message(chat_id, "Processing your request...")
 
