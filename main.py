@@ -31,6 +31,7 @@ def handler(token):
 
         # Extract message text, chat ID, and message ID from the request
         print("Extracting message text, chat ID, and message ID...")
+        print(f"Type of request.json: {type(request.json)}")
         message_text = request.json.get("message", {}).get("text", "")
         chat_id = request.json.get("message", {}).get("chat", {}).get("id", "")
         username = (
